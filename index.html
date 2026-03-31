@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NiftiPrints — Beautiful Digital Printables</title>
+    <meta name="description" content="Beautiful digital printables for planners, wall art, and templates. Instant download, print at home.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --sage: #7A8E6C;
+            --sage-light: #A8B89C;
+            --sage-bg: #F0F4E8;
+            --cream: #FDFBF5;
+            --terracotta: #C4836A;
+            --gold: #B8A06A;
+            --dark: #2C2C2C;
+            --gray: #888;
+            --light-gray: #E8E8E8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--sage);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--sage);
+            clip-path: ellipse(55% 100% at 50% 0%);
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: var(--terracotta);
+            color: white;
+            text-decoration: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Products Section */
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-weight: 300;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-card .card-color {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-card .card-body {
+            padding: 24px;
+        }
+
+        .product-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .product-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .product-card .price {
+            font-weight: 600;
+            color: var(--sage);
+            font-size: 1.1rem;
+        }
+
+        .product-card .price .original {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin-left: 8px;
+        }
+
+        /* Features */
+        .features {
+            background: var(--sage-bg);
+            padding: 60px 20px;
+        }
+
+        .features-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-item .icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-item h4 {
+            font-family: 'DM Serif Display', serif;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .feature-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light-gray);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer .brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: var(--sage-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin: 16px 0;
+        }
+
+        .footer-links a {
+            margin: 0 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>NiftiPrints</h1>
+        <p class="tagline">Beautiful digital printables — planners, wall art & templates</p>
+        <a href="https://www.etsy.com/shop/NiftiPrints" class="cta">Shop on Etsy →</a>
+    </section>
+
+    <!-- Products -->
+    <section class="section">
+        <h2 class="section-title">Our Collection</h2>
+        <p class="section-subtitle">Designed with care. Download instantly. Print at home.</p>
+
+        <div class="products">
+            <div class="product-card">
+                <div class="card-color" style="background: linear-gradient(135deg, #F5E6CC, #B8860B33);">📋</div>
+                <div class="card-body">
+                    <h3>Monthly Budget Planner</h3>
+                    <p>5-page bundle: budget worksheet, expense tracker, savings goal, bill checklist</p>
+                    <span class="price">$4.99 <span class="original">$7.99</span></span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-color" style="background: linear-gradient(135deg, #E8F0E0, #A8B89C44);">📝</div>
+                <div class="card-body">
+                    <h3>Minimalist Daily Planner</h3>
+                    <p>Undated day planner with time blocks, to-do list, meal tracker & gratitude section</p>
+                    <span class="price">$3.49 <span class="original">$5.99</span></span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-color" style="background: linear-gradient(135deg, #F5E0D8, #C4836A33);">💰</div>
+                <div class="card-body">
+                    <h3>52-Week Savings Challenge</h3>
+                    <p>Save $1,378 in a year! Includes challenge grid, custom tracker & monthly overview</p>
+                    <span class="price">$2.99 <span class="original">$4.99</span></span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-color" style="background: linear-gradient(135deg, #F0F4E8, #8B8B5E33);">🎨</div>
+                <div class="card-body">
+                    <h3>Wall Art Set — 5 Prints</h3>
+                    <p>Abstract & botanical minimalist art in 4 sizes. Sage, terracotta & neutral tones</p>
+                    <span class="price">$5.99 <span class="original">$9.99</span></span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="card-color" style="background: linear-gradient(135deg, #F0F4E8, #6B7B3A33);">🍽️</div>
+                <div class="card-body">
+                    <h3>Weekly Meal Planner</h3>
+                    <p>Meal plan grid, categorized grocery list, recipe cards & pantry checklist</p>
+                    <span class="price">$3.99 <span class="original">$6.99</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="icon">⚡</div>
+                <h4>Instant Download</h4>
+                <p>Get your files immediately after purchase. No waiting, no shipping.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🖨️</div>
+                <h4>Print at Home</h4>
+                <p>US Letter size PDFs. Print as many copies as you need, forever.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🎨</div>
+                <h4>Beautiful Design</h4>
+                <p>Clean, minimalist aesthetics in warm neutral tones you'll love.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="brand">NiftiPrints</div>
+        <div class="footer-links">
+            <a href="https://www.etsy.com/shop/NiftiPrints">Etsy Shop</a>
+            <a href="mailto:niftiprintsshop@gmail.com">Contact</a>
+        </div>
+        <p>© 2026 NiftiPrints. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 0.75rem;">The term 'Etsy' is a trademark of Etsy, Inc. This application uses the Etsy API but is not endorsed or certified by Etsy, Inc.</p>
+    </footer>
+
+</body>
+</html>
